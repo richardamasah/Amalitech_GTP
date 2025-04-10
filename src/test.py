@@ -1,0 +1,1 @@
+deleted columns = drop_columns(data)
