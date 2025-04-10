@@ -28,3 +28,18 @@ plt.grid(axis='y')
 plt.tight_layout()
 plt.show()
 
+#yearly trends average revenue n budget
+# Convert release_date to datetime and extract year
+df['release_year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
+
+yearly_trends = df.groupby('release_year')[['revenue_musd', 'budget_musd']].mean().dropna()
+
+plt.figure(figsize=(12, 6))
+yearly_trends.plot(kind='line', marker='o')
+plt.title('Yearly Trends: Avg Revenue & Budget')
+plt.xlabel('Release Year')
+plt.ylabel('Million USD')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
