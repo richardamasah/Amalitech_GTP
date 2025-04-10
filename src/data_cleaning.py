@@ -156,6 +156,78 @@ def filter_released_movies(df):
 df = filter_released_movies(df)
 
 
+import pandas as pd
+
+def extract_cast_crew(df, credits_col='credits'):
+    """
+    Extracts cast and crew info from a JSON-like column in the DataFrame.
+
+    - Extracts top 5 cast names (joined with '|')
+    - Cast list size
+    - Director name
+    - Crew list size
+
+    Parameters:
+    df (pd.DataFrame): The input DataFrame.
+    credits_col (str): Name of the column containing the credits JSON.
+
+    Returns:
+    pd.DataFrame: DataFrame with added 'cast', 'cast_size', 'director', and 'crew_size' columns.
+    """
+
+#to extract cast json column
+    def extract_cast_crew_info(credits_dict):
+        if not isinstance(credits_dict, dict):
+            return pd.Series([None, None, None, None], index=['cast', 'cast_size', 'director', 'crew_size'])
+
+        cast_list = credits_dict.get('cast', [])
+        crew_list = credits_dict.get('crew', [])
+
+        cast_names = [member['name'] for member in cast_list[:5] if 'name' in member]
+        directors = [member['name'] for member in crew_list if member.get('job') == 'Director']
+
+        return pd.Series([
+            '|'.join(cast_names),
+            len(cast_list),
+            directors[0] if directors else None,
+            len(crew_list)
+        ], index=['cast', 'cast_size', 'director', 'crew_size'])
+
+    cast_crew_df = df[credits_col].apply(extract_cast_crew_info)
+    df = pd.concat([df, cast_crew_df], axis=1)
+    return df
+
+df = extract_cast_crew(df)
+
+
+#arrange columns
+def rearrange_columns(df, rich_order):
+    """
+    Reorders the columns of the DataFrame to match the rich_order list.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to reorder.
+    rich_order (list): List of column names in the desired order.
+
+    Returns:
+    pd.DataFrame: Reordered DataFrame with any remaining columns placed at the end.
+    """
+    remaining_cols = [col for col in df.columns if col not in rich_order]
+    new_order = rich_order + remaining_cols
+    return df[new_order]
+
+
+rich_order = [
+    'id', 'title', 'tagline', 'release_date', 'genres', 'belongs_to_collection',
+    'original_language', 'budget_musd', 'revenue_musd', 'production_companies',
+    'production_countries', 'vote_count', 'vote_average', 'popularity', 'runtime',
+    'overview', 'spoken_languages', 'poster_path', 'cast', 'cast_size', 'director', 'crew_size'
+]
+
+df = rearrange_columns(df, rich_order)
+
+
+
 
 
 
