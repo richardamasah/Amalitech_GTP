@@ -88,3 +88,65 @@ print(filtered_results['Best Sci-Fi Action with Bruce Willis'].head())
 print(filtered_results['Uma Thurman & Tarantino'].head())
 
 
+#compare franchise vs standlone
+def compare_franchise_vs_standalone(df):
+    """
+    Compares movie franchises vs. standalone movies on various metrics:
+    - Mean Revenue
+    - Median ROI
+    - Mean Budget
+    - Mean Popularity
+    - Mean Rating
+
+    Returns:
+    pd.DataFrame: Summary table comparing franchises and standalones.
+    """
+
+    # Ensure required columns exist
+    df = df.copy()
+    df['is_franchise'] = df['belongs_to_collection'].notna()
+    df['roi'] = df['revenue_musd'] / df['budget_musd']
+
+    # Group by franchise status
+    grouped = df.groupby('is_franchise').agg({
+        'revenue_musd': 'mean',
+        'roi': 'median',
+        'budget_musd': 'mean',
+        'popularity': 'mean',
+        'vote_average': 'mean'
+    })
+
+    # Rename rows for readability
+    grouped.index = ['Standalone', 'Franchise']
+    grouped.columns = ['Mean Revenue (M USD)', 'Median ROI', 'Mean Budget (M USD)',
+                       'Mean Popularity', 'Mean Rating']
+
+    return grouped
+
+comparison_df = compare_franchise_vs_standalone(df)
+
+#compare franchise n directors
+def get_top_franchises(df, top_n=10):
+    df = df.copy()
+    df['belongs_to_collection'].replace('None', pd.NA, inplace=True)
+    franchise_df = df[df['belongs_to_collection'].notna()]
+
+    top_franchises = franchise_df.groupby('belongs_to_collection').agg(
+        number_of_movies=('id', 'count'),
+        total_budget=('budget_musd', 'sum'),
+        mean_budget=('budget_musd', 'mean'),
+        total_revenue=('revenue_musd', 'sum'),
+        mean_revenue=('revenue_musd', 'mean'),
+        mean_rating=('vote_average', 'mean')
+    ).sort_values(by='total_revenue', ascending=False)
+
+    return top_franchises.head(top_n)
+
+top_franchises = get_top_franchises(df)
+top_franchises
+
+
+
+
+
+
