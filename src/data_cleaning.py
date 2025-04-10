@@ -81,6 +81,84 @@ datetime_column = 'release_date'
 df = convert_columns(df, numeric_cols=numeric_columns, datetime_col=datetime_column)
 
 
+# convert column to M
+def convert_to_millions(df, cols):
+    """
+    Converts specified columns to millions by dividing by 1,000,000.
+    
+    Parameters:
+    df (pd.DataFrame): The DataFrame to modify.
+    cols (list): List of column names to convert.
+    
+    Returns:
+    pd.DataFrame: The DataFrame with updated columns.
+    """
+    for col in cols:
+        df[col] = df[col] / 1_000_000
+    return df
+
+df = convert_to_millions(df, ['budget', 'revenue'])
+
+
+#. remove dublicates and drop drop rows with unkown id
+def clean_duplicates_and_missing(df, subset_cols=['id', 'title']):
+    """
+    Removes duplicate rows based on given columns and drops rows with missing values in those columns.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to clean.
+    subset_cols (list): List of column names to check for duplicates and missing values.
+
+    Returns:
+    pd.DataFrame: The cleaned DataFrame.
+    """
+    df.drop_duplicates(subset=subset_cols, inplace=True)
+    df.dropna(subset=subset_cols, inplace=True)
+    return df
+
+
+df = clean_duplicates_and_missing(df)
+
+#filter na rows
+def filter_min_non_na(df, min_non_na=10):
+    """
+    Keeps only rows that have at least `min_non_na` non-NaN values.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to filter.
+    min_non_na (int): Minimum number of non-NaN values required.
+
+    Returns:
+    pd.DataFrame: Filtered DataFrame.
+    """
+    return df[df.notna().sum(axis=1) >= min_non_na]
+
+df = filter_min_non_na(df)
+
+
+#filter Filter to include only 'Released' movies, then drop 'status'.
+def filter_released_movies(df):
+    """
+    Filters DataFrame to include only rows where 'status' is 'Released',
+    then drops the 'status' column.
+
+    Parameters:
+    df (pd.DataFrame): The DataFrame to filter.
+
+    Returns:
+    pd.DataFrame: Filtered DataFrame.
+    """
+    df = df[df['status'] == 'Released']
+    df.drop(columns=['status'], inplace=True)
+    return df
+
+
+df = filter_released_movies(df)
+
+
+
+
+
 
 
 
