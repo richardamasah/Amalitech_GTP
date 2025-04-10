@@ -1,3 +1,6 @@
+# function to perform eda
+
+
 def generate_movie_rankings(df, top_n=10):
     """
     Generates top/bottom movie rankings based on various metrics.
