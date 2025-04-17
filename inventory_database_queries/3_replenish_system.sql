@@ -58,3 +58,10 @@ END;
 
 -- Make sure the event scheduler is turned on
 SET GLOBAL event_scheduler = ON;
+
+
+-- Create the event that runs daily
+CREATE EVENT auto_replenish
+ON SCHEDULE EVERY 1 DAY
+DO
+  CALL ReplenishStock();
