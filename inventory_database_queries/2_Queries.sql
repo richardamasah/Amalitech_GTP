@@ -48,9 +48,9 @@ BEGIN
     WHERE product_id = p_product_id;
 
 
-    -- ============================
+    -- =============================
     -- Step 5: Calculate and update total
-    -- ============================
+    -- =============================
     SET v_total = v_price * p_quantity;
 
     UPDATE orders
@@ -173,3 +173,30 @@ BEGIN
 END $$
 
 DELIMITER ;
+
+
+-- =============================================================================
+--   CUSTOMER SPENDING SUMMARY
+-- =============================================================================
+--     Shows total spending of each customer and assigns them to a loyalty tier.
+--     - Bronze: < 500
+--     - Silver: 500 - 999
+--     - Gold: 1000+
+-- =============================================================================
+
+CREATE VIEW customer_spending_summary AS
+SELECT 
+    c.customer_id,
+    c.name AS customer_name,
+    SUM(o.total_amount) AS total_spent,
+    CASE 
+        WHEN SUM(o.total_amount) >= 1000 THEN 'Gold'
+        WHEN SUM(o.total_amount) >= 500 THEN 'Silver'
+        ELSE 'Bronze'
+    END AS customer_tier
+FROM 
+    customers c
+JOIN 
+    orders o ON c.customer_id = o.customer_id
+GROUP BY 
+    c.customer_id, c.name;
