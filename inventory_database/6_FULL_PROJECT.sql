@@ -241,7 +241,7 @@ DELIMITER ;
 --  PROCEDURE: ReplenishStock()
 -- =============================================================================
 --     Automatically finds all products where stock_quantity < reorder_level.
---     Replenishes stock by adding 50 units.
+--     Replenishes stock by adding 20 units.
 --     Logs each replenishment into inventory_logs.
 
 -- =============================================================================
@@ -283,8 +283,9 @@ BEGIN
 
     -- Close the cursor
     CLOSE stock_cursor;
-END;
-//
+END //
+
+DELIMITER ;
 
 
 -- =============================================================================

@@ -1,8 +1,8 @@
- ## Inventory Management System ##  project by **Richard Amasah**
+ ## Inventory Management System   project by **Richard Amasah**
 
 ---
 
-## 🧾 Overview
+##  Overview
 This SQL project simulates a full inventory and order management system for an e-commerce business. It includes:
 
 - Product and customer management
