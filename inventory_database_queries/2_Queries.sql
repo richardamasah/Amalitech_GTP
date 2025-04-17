@@ -57,3 +57,23 @@ BEGIN
     SET total_amount = v_total
     WHERE order_id = v_order_id;
 END $$
+
+
+
+-- ============================================================
+-- 2. -- Trigger to log stock changes in inventory_logs after updating the products table
+-- ============================================================
+DELIMITER $$
+CREATE TRIGGER log_inventory_change
+AFTER UPDATE ON products
+FOR EACH ROW
+BEGIN
+    -- Log the difference in stock quantity (NEW - OLD) with 'AUTO-LOG' change type
+    INSERT INTO inventory_logs (product_id, change_amount, change_type)
+    VALUES (
+        NEW.product_id,
+        NEW.stock_quantity - OLD.stock_quantity,
+        'stock update');
+END $$
+
+DELIMITER ;
