@@ -48,9 +48,9 @@ BEGIN
     WHERE product_id = p_product_id;
 
 
-    -- =============================
+    -- =================================
     -- Step 5: Calculate and update total
-    -- =============================
+    -- =================================
     SET v_total = v_price * p_quantity;
 
     UPDATE orders
