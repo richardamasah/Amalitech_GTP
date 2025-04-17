@@ -13,7 +13,7 @@ CREATE PROCEDURE ReplenishStock()
 BEGIN
     DECLARE done INT DEFAULT 0;
     DECLARE prod_id INT;
-    DECLARE qty_to_add INT DEFAULT 50;
+    DECLARE qty_to_add INT DEFAULT 20;
 
     -- Cursor to get all products that need restocking
     DECLARE stock_cursor CURSOR FOR
