@@ -46,3 +46,15 @@ BEGIN
     CLOSE stock_cursor;
 END;
 //
+
+
+-- =============================================================================
+--  EVENT: auto_replenish
+-- =============================================================================
+--     Automates the ReplenishStock() procedure by running it every day.
+--     Ensures stock is checked and replenished without manual intervention.
+--     This is what makes the system self-managing — full automation of restocking.
+-- =============================================================================
+
+-- Make sure the event scheduler is turned on
+SET GLOBAL event_scheduler = ON;
