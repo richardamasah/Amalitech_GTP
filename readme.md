@@ -1,5 +1,4 @@
- Inventory Management System (SQL Project)
-Final SQL project by **Richard Amasah**
+ ## Inventory Management System ##  project by **Richard Amasah**
 
 ---
 
