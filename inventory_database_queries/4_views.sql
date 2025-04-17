@@ -23,3 +23,29 @@ JOIN
     order_details od ON o.order_id = od.order_id    -- Link order to its items
 GROUP BY 
     o.order_id, c.name, o.order_date, o.total_amount;
+
+
+
+
+    -- =============================================================================
+--   VIEW TO CHECK STOCK INTO TO DETERMINE LOW STOCK IN DATABASE
+-- =============================================================================
+--     This view identifies all products that are low on stock.
+--     It shows:
+--     - Product ID, name, category
+--     - Current stock quantity
+--     - Reorder threshold level
+--
+-- =============================================================================
+
+CREATE VIEW low_stock_view AS
+SELECT 
+    product_id,           -- Product ID
+    name,                 -- Product name
+    category,             -- Product category
+    stock_quantity,       -- Current quantity in stock
+    reorder_level         -- Threshold to trigger replenishment
+FROM 
+    products
+WHERE 
+    stock_quantity < reorder_level;   -- Only show products below the reorder level
