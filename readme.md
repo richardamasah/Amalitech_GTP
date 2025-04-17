@@ -1,5 +1,5 @@
-# 📦 Inventory Management System (SQL Project)
-Final SQL project by **Sir Djanie**
+ Inventory Management System (SQL Project)
+Final SQL project by **Richard Amasah**
 
 ---
 
@@ -24,9 +24,9 @@ This SQL project simulates a full inventory and order management system for an e
 | `3_views.sql`       | Views for order summary, stock insights, and customer tiers |
 | `4_replenishment.sql` | Procedure + event to handle daily stock restocking |
 | `5_reports.sql`     | Sample queries for order summaries, low stock reports, top spenders, etc. |
-| `sample_data.sql`   | Optional insert statements for testing the system |
+| `sample_data.sql`   |  insert statements for testing the system |
 | `full_project.sql`  | All-in-one complete SQL script with everything organized |
-| `README.md`         | This file 😊 |
+| `README.md`         | This file I that took me forever to write |
 
 ---
 
@@ -58,7 +58,7 @@ See `5_reports.sql` for:
 
 ---
 
-## 🚀 Author
-Built with SQL by **Sir Djanie**  
-Inspired by real-world systems. Designed to impress and automate.
+## 
+Built with SQL by **Richard Amasah**  
+Inspired by real-world systems. Design for CEO Francis Class-Peters.
 
