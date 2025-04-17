@@ -35,5 +35,24 @@ plt.show()
 
 
 
+# roi chart
+df['roi'] = pd.to_numeric(df['roi'], errors='coerce')
+
+# Step 2: Extract the main genre (first one before "|")
+df['main_genre'] = df['genres'].apply(lambda x: x.split('|')[0] if isinstance(x, str) else None)
+
+# Step 3: Drop missing values for clean plot
+df_roi = df.dropna(subset=['roi', 'main_genre'])
+
+# Step 4: Plot ROI distribution by main genre
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=df_roi, x='main_genre', y='roi')
+plt.xticks(rotation=45)
+plt.title('ROI Distribution by Genre')
+plt.tight_layout()
+plt.show()
+
+
+
 
 
