@@ -21,3 +21,5 @@ GROUP BY
     p.product_id, p.name
 ORDER BY 
     total_sold DESC;
+
+    CALL ReplenishStock();
