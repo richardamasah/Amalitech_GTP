@@ -1,5 +1,5 @@
 -- =============================================================================
--- 📄 VIEW: order_summary_view
+--  VIEW: order_summary_view
 -- =============================================================================
 --     This view displays a summary of all customer orders, showing:
 --     - Customer name
@@ -49,3 +49,31 @@ FROM
     products
 WHERE 
     stock_quantity < reorder_level;   -- Only show products below the reorder level
+
+
+
+-- =============================================================================
+--   CUSTOMER SPENDING CATEGORY
+-- =============================================================================
+--     Shows total spending of each customer and assigns them to a loyalty tier.
+--     - Bronze: < 500
+--     - Silver: 500 - 999
+--     - Gold: 1000+
+-- =============================================================================
+
+CREATE VIEW customer_spending_category AS
+SELECT 
+    c.customer_id,
+    c.name AS customer_name,
+    SUM(o.total_amount) AS total_spent,
+    CASE 
+        WHEN SUM(o.total_amount) >= 1000 THEN 'Gold'
+        WHEN SUM(o.total_amount) >= 500 THEN 'Silver'
+        ELSE 'Bronze'
+    END AS customer_tier
+FROM 
+    customers c
+JOIN 
+    orders o ON c.customer_id = o.customer_id
+GROUP BY 
+    c.customer_id, c.name;
