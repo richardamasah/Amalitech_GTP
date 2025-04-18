@@ -70,6 +70,7 @@ CREATE TABLE inventory_logs (
 --    Places an order.
 --    Inserts into orders and order_details tables.
 --    Deducts stock and logs inventory changes.
+--    Calculates total amount of products ordered
 -- ============================================
 DELIMITER $$
 CREATE PROCEDURE place_order(
@@ -121,12 +122,15 @@ BEGIN
     WHERE order_id = v_order_id;
 END $$
 
+DELIMITER ;
 
 
 -- ============================================================
 -- 2. -- Trigger to log stock changes in inventory_logs after updating the products table
-       -- TRIGGER CAN BE COMMENTED OUT AS LOGGING OCCURES IN THE DISCOUNTED PROCEDURE TO AVOID 
-       -- DUPLICATE LOGS
+       -- I created this trigger to show how a trigger works and logs information after 
+       -- and update is made 
+       -- But my place order procedure automatically logs the data. 
+       -- Answeres question 2ii
 -- ============================================================
 DELIMITER $$
 CREATE TRIGGER log_inventory_change
@@ -143,9 +147,11 @@ END $$
 
 DELIMITER ;
 
--- Phase 3: Monitoring and Reporting
+
 
 DELIMITER $$
+-- Phase 3: Monitoring and Reporting
+-- QUESTION 3
 
 -- =============================================================================
 --  PROCEDURE TO PLACE ORDER WITH DISCOUNT
@@ -237,6 +243,39 @@ END $$
 DELIMITER ;
 
 
+
+ -- QUESTION 3 ii
+-- =============================================================================
+--   CUSTOMER SPENDING CATEGORY
+-- =============================================================================
+--     Shows total spending of each customer and assigns them to a loyalty tier.
+--     - Bronze: < 500
+--     - Silver: 500 - 999
+--     - Gold: 1000+
+-- =============================================================================
+
+CREATE VIEW customer_spending_category AS
+SELECT 
+    c.customer_id,
+    c.name AS customer_name,
+    SUM(o.total_amount) AS total_spent,
+    CASE 
+        WHEN SUM(o.total_amount) >= 1000 THEN 'Gold'
+        WHEN SUM(o.total_amount) >= 500 THEN 'Silver'
+        ELSE 'Bronze'
+    END AS customer_tier
+FROM 
+    customers c
+JOIN 
+    orders o ON c.customer_id = o.customer_id
+GROUP BY 
+    c.customer_id, c.name;
+
+
+
+
+-- Phase 4: Stock Replenishment and Automation
+
 -- =============================================================================
 --  PROCEDURE: ReplenishStock()
 -- =============================================================================
@@ -288,6 +327,8 @@ END //
 DELIMITER ;
 
 
+
+
 -- =============================================================================
 --  EVENT: auto_replenish
 -- =============================================================================
@@ -296,7 +337,7 @@ DELIMITER ;
 --     This is what makes the system self-managing — full automation of restocking.
 -- =============================================================================
 
--- Make sure the event scheduler is turned on
+-- Turn scheduler On to run daily
 SET GLOBAL event_scheduler = ON;
 
 
@@ -307,6 +348,9 @@ DO
   CALL ReplenishStock();
 
 
+
+-- question 5
+-- Phase 5: Advanced Queries
 
   -- =============================================================================
 --  VIEW: order_summary_view
