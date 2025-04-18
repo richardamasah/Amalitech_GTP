@@ -9,6 +9,11 @@ SELECT *
 FROM customer_spending_summary;
 
 
+
+SELECT *
+FROM customer_spending_category;
+
+
 -- Quantity sold per product
 SELECT 
     p.name,
