@@ -2,8 +2,9 @@
 --  PROCEDURE: ReplenishStock()
 -- =============================================================================
 --     Automatically finds all products where stock_quantity < reorder_level.
---     Replenishes stock by adding 50 units.
+--     Replenishes stock by adding 20 units.
 --     Logs each replenishment into inventory_logs.
+--     Added an event to run procedure everyday
 
 -- =============================================================================
 
@@ -56,7 +57,7 @@ END;
 --     This is what makes the system self-managing — full automation of restocking.
 -- =============================================================================
 
--- Make sure the event scheduler is turned on
+-- even scheduler is turned on to run daily
 SET GLOBAL event_scheduler = ON;
 
 
