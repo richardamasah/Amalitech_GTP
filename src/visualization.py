@@ -1,45 +1,71 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+def generate_visualizations(df):
+    """
+    Generates individual plots for:
+    - Revenue vs Budget
+    - ROI by Genre
+    - Popularity vs Rating
+    - Yearly Revenue Trends
+    - Franchise vs Standalone Comparison
+    """
 
-#revenue vs budgetplt.figure(figsize=(10, 6))
-sns.scatterplot(data=df, x='budget_musd', y='revenue_musd', hue='original_language', alpha=0.7)
-plt.title('Revenue vs Budget')
-plt.xlabel('Budget (Million USD)')
-plt.ylabel('Revenue (Million USD)')
-plt.legend(title='Language', bbox_to_anchor=(1.05, 1), loc='upper left')
-plt.tight_layout()
-plt.show()
+    # Prepare working copy
+    df = df.copy()
+    df['roi'] = df['revenue'] / df['budget']
+    df['year'] = df['release_date'].dt.year
+    df['is_franchise'] = df['belongs_to_collection'].notna()
 
-# Franchise vs. Standalone Success
-df['is_franchise'] = df['belongs_to_collection'].notna()
+    sns.set(style="whitegrid")
 
-comparison = df.groupby('is_franchise').agg({
-    'revenue_musd': 'mean',
-    'roi': 'median',
-    'budget_musd': 'mean',
-    'popularity': 'mean',
-    'vote_average': 'mean'
-}).rename(index={True: 'Franchise', False: 'Standalone'})
+    # 1. Revenue vs Budget
+    plt.figure(figsize=(8, 5))
+    sns.scatterplot(data=df, x='budget', y='revenue')
+    plt.title("Revenue vs Budget")
+    plt.xlabel("Budget (Million USD)")
+    plt.ylabel("Revenue (Million USD)")
+    plt.show()
 
-comparison.plot(kind='bar', figsize=(12, 6))
-plt.title('Franchise vs Standalone: Success Metrics')
-plt.ylabel('Average Value')
-plt.xticks(rotation=0)
-plt.grid(axis='y')
-plt.tight_layout()
-plt.show()
+    # 2. ROI Distribution by Genre
+    genre_df = df.dropna(subset=['genres']).copy()
+    genre_df = genre_df.assign(genre_split=genre_df['genres'].str.split('|')).explode('genre_split')
 
-#yearly trends average revenue n budget
-# Convert release_date to datetime and extract year
-df['release_year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(data=genre_df, x='genre_split', y='roi')
+    plt.xticks(rotation=90)
+    plt.title("ROI by Genre")
+    plt.xlabel("Genre")
+    plt.ylabel("ROI")
+    plt.show()
 
-yearly_trends = df.groupby('release_year')[['revenue_musd', 'budget_musd']].mean().dropna()
+    # 3. Popularity vs Rating
+    plt.figure(figsize=(8, 5))
+    sns.scatterplot(data=df, x='popularity', y='vote_average')
+    plt.title("Popularity vs Rating")
+    plt.xlabel("Popularity")
+    plt.ylabel("Average Rating")
+    plt.show()
 
-plt.figure(figsize=(12, 6))
-yearly_trends.plot(kind='line', marker='o')
-plt.title('Yearly Trends: Avg Revenue & Budget')
-plt.xlabel('Release Year')
-plt.ylabel('Million USD')
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+    # 4. Yearly Revenue Trend
+    yearly = df.groupby('year')['revenue'].mean().dropna()
+    plt.figure(figsize=(10, 5))
+    yearly.plot(marker='o')
+    plt.title("Average Revenue by Year")
+    plt.xlabel("Year")
+    plt.ylabel("Avg Revenue (Million USD)")
+    plt.grid(True)
+    plt.show()
 
+    # 5. Franchise vs Standalone Revenue Comparison
+    plt.figure(figsize=(6, 4))
+    sns.barplot(data=df, x='is_franchise', y='revenue')
+    plt.xticks([0, 1], ['Standalone', 'Franchise'])
+    plt.title("Revenue: Franchise vs Standalone")
+    plt.ylabel("Revenue (Million USD)")
+    plt.xlabel("Movie Type")
+    plt.show()
+
+#from movie_analysis import generate_visualizations
+
+generate_visualizations(df_cleaned)
