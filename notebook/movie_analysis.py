@@ -398,9 +398,7 @@ def generate_visualizations(df):
     plt.xlabel("Movie Type")
     plt.show()
 
-#from movie_analysis import generate_visualizations
 
-#generate_visualizations(df_cleaned)
 
 
 
