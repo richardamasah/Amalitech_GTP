@@ -119,7 +119,12 @@ def build_schema() -> StructType:
     
     return StructType(movie_fields + [collection_field] + array_fields + [credits_field])
 
-# Set 2: Data Extraction
+    # ====================================================================================
+
+#               Set 2: DATA EXTRACTION
+
+# =========================================================================
+
 def create_session_with_retries(retries: int = 3, delay: float = 0.5) -> requests.Session:
     """
     Creates an HTTP session with retries for reliable TMDB API calls.
@@ -174,12 +179,7 @@ def fetch_tmdb_movies(movie_ids: List[int], schema: StructType) -> DataFrame:
                 "belongs_to_collection": result.get("belongs_to_collection"),
             }
             
-            # Process array fields (genres, companies, etc.)
-            for field in JSON_ARRAY_FIELDS:
-                value = result.get(field, [])
-                if not isinstance(value, list):
-                    value = []
-                movie_data[field] = value
+            
             
             # Structure credits (cast and crew)
             credits = result.get("credits", {})
@@ -204,9 +204,14 @@ def fetch_tmdb_movies(movie_ids: List[int], schema: StructType) -> DataFrame:
     # Create DataFrame and log row count
     df = spark.createDataFrame(movies or [], schema)
     logging.info(f"Created DataFrame with {df.count()} rows")
+    
     return df
 
+
+# ==================================================
 # Set 3: Data Cleaning
+#================================================
+
 def clean_movie_data(df: DataFrame) -> DataFrame:
     """
     Cleans and transforms raw TMDB movie data by extracting nested fields and computing metrics.
@@ -287,7 +292,12 @@ def clean_movie_data(df: DataFrame) -> DataFrame:
     ]
     return cleaned_df.select([col(c) for c in selected_columns if c in cleaned_df.columns])
 
-# Set 4: KPI Analysis
+
+
+# ==================================================
+#                Set 4: KPI Analysis
+#=====================================================
+
 def kpi_ranking(df: DataFrame, metric: str, n: int = 10, top: bool = True,
                 filter_col: Optional[str] = None, filter_val: Optional[float] = None) -> DataFrame:
     """
@@ -371,7 +381,11 @@ def analyze_directors(df: DataFrame, sort_by: Optional[str] = None, ascending: b
     )
     return stats.orderBy(col(sort_by).asc() if ascending else col(sort_by).desc()) if sort_by else stats
 
-# Set 5: Visualization
+
+
+# =====================================================
+#         Set 5: Visualization
+#=======================================================
 def plot_revenue_vs_budget(df: DataFrame) -> None:
     """
     Creates a scatter plot of movie budgets vs. revenues.
@@ -507,9 +521,13 @@ def plot_franchise_vs_standalone(df: DataFrame) -> None:
     plt.legend(title="Movie Type")
     plt.tight_layout()
     plt.savefig("franchise_vs_standalone.png")
+    
     plt.close()
 
+#==========================================
 # Main Execution
+#===================================
+
 def main():
     """
     Runs the TMDB movie analysis pipeline: fetches data, cleans it, performs analysis, and generates visualizations.
