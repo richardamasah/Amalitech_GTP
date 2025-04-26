@@ -1,21 +1,35 @@
-Movie Data Analysis with PySpark
-Overview
-This project analyzes movie data from the TMDB API using PySpark. It fetches movie data, cleans and processes it, performs analyses like ranking movies by revenue and comparing franchises, and creates visualizations such as revenue vs. budget plots. The project includes a Python script for automation and a Jupyter Notebook for interactive analysis.
-Objectives
+## Movie Data Analysis with PySpark
+
+
+# Overview
+The analysis walks through key questions:
+
+Which genres and directors are most successful?
+What are the patterns between budget, revenue, and ROI?
+How do standalone movies compare to franchise films?
+Does popularity match critical acclaim?
 
 Fetch and clean movie data.
 Analyze metrics like revenue and popularity.
 Compare franchise vs. standalone movies.
 Create visualizations to explore trends.
 
-Prerequisites
+
+ ## Tools & Libraries
+Python
+Pandas
+Matplotlib
+Seaborn
+Jupyter Notebook
+
+## Prerequisites
 
 Python 3.11.x
 Java JDK 8 (for Spark)
 TMDB API Key: Sign up at themoviedb.org
 Git
 
-Getting Started
+## Getting Started
 1. Clone the Repository
 git clone https://github.com/your-username/movie-data-analysis.git
 cd movie-data-analysis
@@ -41,26 +55,34 @@ Set HADOOP_HOME=C:\hadoop and add C:\hadoop\bin to Path.
 Create a .env file:
 API_KEY=your_tmdb_api_key
 
-Usage
-Running the Script
-
-Activate the virtual environment.
-Run the main script:python main_script.py
 
 
-Output: Fetches data, performs analysis, and saves visualizations.
-
-Running the Jupyter Notebook
 
 Activate the virtual environment.
 Launch Jupyter:jupyter notebook
 
 
-Open the notebook, select the venv kernel, and run cells.
 
-Visualizations
-The project generates plots like revenue vs. budget, ROI by genre, and more, saved as PNG files.
-Troubleshooting
+
+📈 Insights & Visualizations
+
+🎯 Revenue vs. Budget
+A scatter plot showed a positive correlation between budget and revenue, but with several outliers. Some low-to-mid budget films performed exceptionally well, suggesting that strong scripts or franchises can drive profits without huge investments.
+
+📦 ROI by Genre
+Using a boxplot, we compared genres by ROI. Genres like Animation, Family, and Horror had higher returns on investment, while Drama and Romance were more inconsistent and lower-yielding, possibly due to niche appeal.
+
+🌟 Popularity vs. Rating
+A scatter plot showed little correlation between popularity and critical rating. Many highly popular movies had average ratings — suggesting that hype ≠ quality. Conversely, some highly-rated movies weren’t widely popular.
+
+📆 Yearly Revenue Trends
+Revenue has generally increased over the years, especially after 2000. Notable spikes correspond to big franchise releases. A dip around 2020 likely reflects the impact of COVID-19 on cinema.
+
+🔁 Franchise vs. Standalone
+Movies that are part of a collection/franchise consistently showed higher revenue and ROI than standalone films. This supports the idea that sequels and familiar characters draw more viewers.
+
+🎬 Top Directors
+Directors like James Cameron, Christopher Nolan, and Anthony & Joe Russo ranked highest in total revenue. This suggests that industry success often clusters around a few high-performing directors.
 
 “Did not find winutils.exe”: Set HADOOP_HOME and Path.
 “UnicodeEncodeError”: Add sys.stdout.reconfigure(encoding='utf-8') to the script.
