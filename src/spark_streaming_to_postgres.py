@@ -67,7 +67,7 @@ def main(input_path: str = "./data"):
     """Run the Spark Structured Streaming job to process CSVs.
 
     Args:
-        input_path (str, optional): Path to CSV folder. Defaults to "../data/events".
+        input_path (str, optional): Path to CSV folder. Defaults to "../data".
     """
     spark = initialize_spark()
     schema = define_schema()
