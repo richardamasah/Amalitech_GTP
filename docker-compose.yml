@@ -1,0 +1,43 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ecommerce_events
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - ./src/postgres_setup.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce-net
+
+  spark:
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
+    volumes:
+      - ./data/events:/app/data/events
+    depends_on:
+      - postgres
+    networks:
+      - ecommerce-net
+
+  generator:
+    build:
+      context: .
+      dockerfile: Dockerfile.generator
+    volumes:
+      - ./data/events:/app/data/events
+    networks:
+      - ecommerce-net
+
+networks:
+  ecommerce-net:
+    driver: bridge
+
+volumes:
+  data:
