@@ -1,0 +1,18 @@
+# AMALUTECH_GTP/Dockerfile.spark
+FROM apache/spark-py:3.4.0
+
+WORKDIR /app
+
+# Install Python dependencies
+RUN pip install --no-cache-dir pandas pyspark==3.4.0
+
+# Copy PostgreSQL JDBC driver (download from https://jdbc.postgresql.org/download/)
+COPY postgresql-42.6.0.jar /opt/spark/jars/
+
+# Copy project files
+COPY src/spark_streaming_to_postgres.py /app/
+COPY src/postgres_setup.sql /app/
+COPY Docs/postgres_connection_details.txt /app/
+
+# Run Spark streaming job
+CMD ["/opt/spark/bin/spark-submit", "--driver-class-path", "/opt/spark/jars/postgresql-42.6.0.jar", "/app/spark_streaming_to_postgres.py"]
