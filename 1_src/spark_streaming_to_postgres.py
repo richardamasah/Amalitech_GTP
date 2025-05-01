@@ -74,10 +74,10 @@ def write_to_postgres(batch_df, batch_id):
     """
     batch_df.write \
         .format("jdbc") \
-        .option("url", "jdbc:postgresql://localhost:5432/ecommerce_events") \
+        .option("url", "jdbc:postgresql://postgres:5432/ecommerce_events") \
         .option("dbtable", "user_events") \
         .option("user", "postgres") \
-        .option("password", "your_password") \
+        .option("password", "mysecretpassword") \
         .option("driver", "org.postgresql.Driver") \
         .mode("append") \
         .save()
