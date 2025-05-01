@@ -63,7 +63,7 @@ def transform_stream(df):
             .withColumn("event_type", F.lower(F.trim("event_type")))
 
 
-def main(input_path: str = "../data/events"):
+def main(input_path: str = "./data"):
     """Run the Spark Structured Streaming job to process CSVs.
 
     Args:
