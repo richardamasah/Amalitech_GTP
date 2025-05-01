@@ -1,17 +1,17 @@
-## User Guide  
+# User Guide  
 ------------------------------------------------------------------------------------
 
 This guide provides step-by-step instructions to set up and run the real-time e-commerce data pipeline using Spark Structured Streaming and PostgreSQL.
 Prerequisites
 --------------------------------------------------------------------------------------------
-# Software:  
+## Software:  
 Python 3.8+
 PostgreSQL 13+
 Apache Spark 3.4.0+ (with Hadoop)
 Java 8 or 11
 
 
-# Python Packages:  
+## Python Packages:  
 Install via pip: faker, pandas, pyspark
 
 
