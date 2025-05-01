@@ -59,25 +59,45 @@ def transform_stream(df):
     """
     # Convert timestamp string to TIMESTAMP type
     # Clean event_type by trimming and converting to lowercase
+    # Add created_at as current timestamp
     return df.withColumn("timestamp", F.to_timestamp("timestamp")) \
-            .withColumn("event_type", F.lower(F.trim("event_type")))
+            .withColumn("event_type", F.lower(F.trim("event_type"))) \
+            .withColumn("created_at", F.current_timestamp())
 
 
-def main(input_path: str = "./data"):
-    """Run the Spark Structured Streaming job to process CSVs.
+def write_to_postgres(batch_df, batch_id):
+    """Write a batch of streaming data to PostgreSQL.
 
     Args:
-        input_path (str, optional): Path to CSV folder. Defaults to "../data".
+        batch_df (DataFrame): Micro-batch DataFrame to write.
+        batch_id (int): ID of the micro-batch.
+    """
+    batch_df.write \
+        .format("jdbc") \
+        .option("url", "jdbc:postgresql://localhost:5432/ecommerce_events") \
+        .option("dbtable", "user_events") \
+        .option("user", "postgres") \
+        .option("password", "your_password") \
+        .option("driver", "org.postgresql.Driver") \
+        .mode("append") \
+        .save()
+
+
+def main(input_path: str = "../data/events"):
+    """Run the Spark Structured Streaming job to process CSVs and write to PostgreSQL.
+
+    Args:
+        input_path (str, optional): Path to CSV folder. Defaults to "../data/events".
     """
     spark = initialize_spark()
     schema = define_schema()
     df = read_stream(spark, schema, input_path)
     df_transformed = transform_stream(df)
 
-    # Print to console for debugging (temporary, will write to PostgreSQL in Part 3)
+    # Write stream to PostgreSQL
     query = df_transformed.writeStream \
+        .foreachBatch(write_to_postgres) \
         .outputMode("append") \
-        .format("console") \
         .start()
 
     query.awaitTermination()
