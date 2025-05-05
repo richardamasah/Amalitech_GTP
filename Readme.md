@@ -143,7 +143,7 @@ This section summarizes the pipeline's behavior over a 5-minute test run.
 
 ##  Manual Test Cases
 
-| Test Case                 | Action                                                | Expected Outcome                                     | Actual Outcome ✅ |
+| Test Case                 | Action                                                | Expected Outcome                                     | Actual Outcome  |
 |--------------------------|--------------------------------------------------------|------------------------------------------------------|-------------------|
 | **CSV File Generation**  | Run `data_generator.py` for 10s                        | 2 CSVs with 10 rows each                             | Passed            |
 | **Spark File Detection** | Run Spark job while generating files                   | Files detected and processed                         | Passed            |
