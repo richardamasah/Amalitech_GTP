@@ -1,0 +1,10 @@
+# settings.yml
+# Configuration for Kafka and PostgreSQL.
+
+kafka:
+  broker: "kafka:9092"  # Kafka broker address
+  topic: "heart_rates"  # Kafka topic name
+
+database:
+  host: "postgres"      # PostgreSQL host
+  port: 5432           # PostgreSQL port
