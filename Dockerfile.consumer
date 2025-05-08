@@ -1,0 +1,17 @@
+# Dockerfile.consumer
+# Builds the consumer image.
+
+FROM python:3.9
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y libpq-dev gcc python3-dev
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY scripts/heart_rate_consumer.py scripts/heart_rate_consumer.py
+COPY settings.yml settings.yml
+
+CMD ["python", "scripts/heart_rate_consumer.py"]
