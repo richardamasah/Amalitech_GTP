@@ -1,0 +1,18 @@
+# Dockerfile.producer
+# Builds the producer image.
+
+FROM python:3.9
+
+# Install build dependencies
+RUN apt-get update && apt-get install -y libpq-dev gcc python3-dev
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY scripts/heart_rate_generator.py scripts/heart_rate_generator.py
+COPY scripts/heart_rate_producer.py scripts/heart_rate_producer.py
+COPY settings.yml settings.yml
+
+CMD ["python", "scripts/heart_rate_producer.py"]
