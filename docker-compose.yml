@@ -1,43 +1,57 @@
 # docker-compose.yml
-version: '3.8'
+# Simplified orchestration for PostgreSQL, Spark, data generator, and pgAdmin.
+# Runs all services in Docker for the e-commerce streaming project.
 
 services:
   postgres:
-    image: postgres:13
+    image: postgres:latest
     environment:
-      POSTGRES_DB: ecommerce_events
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
-      - ./src/postgres_setup.sql:/docker-entrypoint-initdb.d/init.sql
-    ports:
-      - "5432:5432"
+      - ./src/postgres.sql:/docker-entrypoint-initdb.d/postgres.sql
     networks:
-      - ecommerce-net
+      - ecommerce_network
 
   spark:
-    build:
-      context: .
-      dockerfile: Dockerfile.spark
+    image: bitnami/spark:3.5.0
     volumes:
-      - ./data/events:/app/data/events
+      - ./src:/app/src
+      - ./data:/app/data
+    command: >
+      bash -c "
+        /opt/bitnami/spark/bin/spark-submit
+        --master local[*]
+        --packages org.postgresql:postgresql:42.7.3
+        /app/src/sparkstream.py
+      "
     depends_on:
       - postgres
     networks:
-      - ecommerce-net
+      - ecommerce_network
 
-  generator:
+  data_generator:
     build:
       context: .
       dockerfile: Dockerfile.generator
     volumes:
-      - ./data/events:/app/data/events
+      - ./data:/app/data
     networks:
-      - ecommerce-net
+      - ecommerce_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - "8080:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres
+    networks:
+      - ecommerce_network
 
 networks:
-  ecommerce-net:
+  ecommerce_network:
     driver: bridge
-
-volumes:
-  data:

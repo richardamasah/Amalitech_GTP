@@ -1,0 +1,2 @@
+event_id,user_id,action,product_id,product_name,category,price,timestamp
+962efeb2-16d1-4c60-a9d8-7b9c0cfd18a6,81c3df61-42f6-4fd2-88a5-6340562f1c43,view,prod2,Smartphone,Electronics,699.99,2025-05-09T12:35:24.752130Z

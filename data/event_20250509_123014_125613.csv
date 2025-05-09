@@ -1,0 +1,2 @@
+event_id,user_id,action,product_id,product_name,category,price,timestamp
+2d2a9ced-48a1-4352-80f7-4fe8aeabb42c,caccf3a3-5ee3-4b3c-bd2e-e422d38d4869,purchase,prod4,T-shirt,Clothing,19.99,2025-05-09T12:30:14.124088Z

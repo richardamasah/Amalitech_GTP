@@ -1,0 +1,2 @@
+event_id,user_id,action,product_id,product_name,category,price,timestamp
+fc43e156-5d5a-4ced-8afc-2a89c55e87cb,e833e658-f67b-4cdf-a349-454d7a13530c,purchase,prod5,Sneakers,Footwear,79.99,2025-05-09T12:36:09.819229Z

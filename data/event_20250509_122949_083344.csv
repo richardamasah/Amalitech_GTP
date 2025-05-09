@@ -1,0 +1,2 @@
+event_id,user_id,action,product_id,product_name,category,price,timestamp
+f266175a-9201-484e-8121-78a9e720f6ae,eacf43b3-84d2-4d1f-bb04-bfc54a8ba73f,view,prod3,Headphones,Accessories,99.99,2025-05-09T12:29:49.082753Z
