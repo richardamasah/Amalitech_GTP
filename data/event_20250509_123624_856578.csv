@@ -1,2 +1,0 @@
-event_id,user_id,action,product_id,product_name,category,price,timestamp
-380e6276-e4a6-4a22-896b-5d09fd84bafe,145ec812-3fc3-475e-ba79-d146a6fc7d12,purchase,prod1,Laptop,Electronics,999.99,2025-05-09T12:36:24.855810Z
