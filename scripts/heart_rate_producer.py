@@ -7,9 +7,24 @@ import json
 import time
 from kafka import KafkaProducer
 from heart_rate_generator import create_heart_rate
+import os
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
+# Create logs directory
+log_dir = "logs/producer_logs" if "producer" in __file__ else "logs/consumer_logs"
+os.makedirs(f"/app/{log_dir}", exist_ok=True)
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(f"/app/{log_dir}/{os.path.basename(__file__)}.log"),
+        logging.StreamHandler()
+    ]
+)
 
 # Load settings from settings.yml
 with open("settings.yml", "r") as file:

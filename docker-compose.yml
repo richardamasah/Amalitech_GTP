@@ -56,6 +56,8 @@ services:
       - heart_network
     environment:
       - PYTHONUNBUFFERED=1
+    volumes:
+      - ./logs:/app/logs
     command: sh -c "sleep 30 && python scripts/heart_rate_producer.py"  # Delay for Kafka
 
   consumer:
@@ -72,6 +74,8 @@ services:
       - DB_USER=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_NAME=${DB_NAME}
+    volumes:
+      - ./logs:/app/logs
     command: sh -c "sleep 30 && python scripts/heart_rate_consumer.py"  # Delay for Kafka/Postgres
 
   grafana:
