@@ -1,0 +1,7 @@
+2025-05-18 07:31:39,647 [INFO] Reading CSV from /opt/airflow/data/Flight_Price_Dataset_of_Bangladesh.csv
+2025-05-18 07:31:40,351 [INFO] Loaded 57000 rows from CSV
+2025-05-18 07:31:40,354 [ERROR] Validation error: invalid literal for int() with base 10: 'None'
+2025-05-18 07:37:55,307 [INFO] Reading CSV from /opt/airflow/data/Flight_Price_Dataset_of_Bangladesh.csv
+2025-05-18 07:37:55,849 [INFO] Loaded 57000 rows from CSV
+2025-05-18 07:37:55,850 [INFO] Connecting to MySQL - Host: mysql, Port: 3306, User: flight_user, Database: flight_staging
+2025-05-18 07:38:04,704 [INFO] Successfully loaded 57000 rows into flight_data_staging

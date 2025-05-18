@@ -1,0 +1,16 @@
+[2025-05-18T12:21:55.334+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: flight_price_Richard_Amasah.validate_data manual__2025-05-18T12:21:41.581284+00:00 [queued]>
+[2025-05-18T12:21:55.350+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: flight_price_Richard_Amasah.validate_data manual__2025-05-18T12:21:41.581284+00:00 [queued]>
+[2025-05-18T12:21:55.351+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2025-05-18T12:21:55.373+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): validate_data> on 2025-05-18 12:21:41.581284+00:00
+[2025-05-18T12:21:55.380+0000] {standard_task_runner.py:60} INFO - Started process 1786 to run task
+[2025-05-18T12:21:55.384+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'flight_price_Richard_Amasah', 'validate_data', 'manual__2025-05-18T12:21:41.581284+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/flight_price_Richard.py', '--cfg-path', '/tmp/tmp0d09wwv2']
+[2025-05-18T12:21:55.388+0000] {standard_task_runner.py:88} INFO - Job 20: Subtask validate_data
+[2025-05-18T12:21:55.468+0000] {task_command.py:423} INFO - Running <TaskInstance: flight_price_Richard_Amasah.validate_data manual__2025-05-18T12:21:41.581284+00:00 [running]> on host d05befceb79d
+[2025-05-18T12:21:55.596+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='flight_price_Richard_Amasah' AIRFLOW_CTX_TASK_ID='validate_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-18T12:21:41.581284+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-18T12:21:41.581284+00:00'
+[2025-05-18T12:21:56.184+0000] {data_validation.py:37} INFO - Connected to MySQL for validation
+[2025-05-18T12:21:57.184+0000] {data_validation.py:42} INFO - Loaded 57000 rows for validation
+[2025-05-18T12:21:57.219+0000] {data_validation.py:64} INFO - Validation passed successfully
+[2025-05-18T12:21:57.249+0000] {python.py:201} INFO - Done. Returned value was: None
+[2025-05-18T12:21:57.266+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=flight_price_Richard_Amasah, task_id=validate_data, execution_date=20250518T122141, start_date=20250518T122155, end_date=20250518T122157
+[2025-05-18T12:21:57.327+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-05-18T12:21:57.374+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
