@@ -1,4 +1,4 @@
-# Import required libraries for Airflow DAG management and Python operations
+
 import sys
 import os
 from airflow import DAG
