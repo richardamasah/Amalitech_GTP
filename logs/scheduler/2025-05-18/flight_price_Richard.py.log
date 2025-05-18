@@ -1322,3 +1322,185 @@
 [2025-05-18T13:19:24.863+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:19:24.862+0000] {dag.py:3036} INFO - Sync 1 DAGs
 [2025-05-18T13:19:24.913+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:19:24.913+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
 [2025-05-18T13:19:24.952+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.182 seconds
+[2025-05-18T13:19:55.115+0000] {processor.py:161} INFO - Started process (PID=2364) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:19:55.117+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:19:55.119+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:19:55.119+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:19:55.162+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:19:55.210+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:19:55.209+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:19:55.243+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:19:55.243+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:19:55.284+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.176 seconds
+[2025-05-18T13:20:25.594+0000] {processor.py:161} INFO - Started process (PID=2369) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:25.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:20:25.599+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:25.598+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:25.644+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:25.703+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:25.703+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:20:25.746+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:25.745+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:20:25.794+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.206 seconds
+[2025-05-18T13:20:56.094+0000] {processor.py:161} INFO - Started process (PID=2374) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:56.099+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:20:56.103+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:56.102+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:56.154+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:20:56.220+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:56.219+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:20:56.272+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:20:56.271+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:20:56.312+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.231 seconds
+[2025-05-18T13:21:26.410+0000] {processor.py:161} INFO - Started process (PID=2379) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:26.413+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:21:26.415+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:26.414+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:26.462+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:26.542+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:26.542+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:21:26.607+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:26.606+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:21:26.652+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.248 seconds
+[2025-05-18T13:21:56.885+0000] {processor.py:161} INFO - Started process (PID=2384) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:56.887+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:21:56.890+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:56.889+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:56.939+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:21:56.990+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:56.989+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:21:57.032+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:21:57.031+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:21:57.080+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.203 seconds
+[2025-05-18T13:22:27.229+0000] {processor.py:161} INFO - Started process (PID=2389) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:27.232+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:22:27.233+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:27.233+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:27.287+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:27.343+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:27.342+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:22:27.392+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:27.391+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:22:27.437+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.215 seconds
+[2025-05-18T13:22:57.681+0000] {processor.py:161} INFO - Started process (PID=2394) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:57.684+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:22:57.686+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:57.685+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:57.739+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:22:57.781+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:57.780+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:22:57.817+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:22:57.816+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:22:57.845+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.172 seconds
+[2025-05-18T13:23:28.021+0000] {processor.py:161} INFO - Started process (PID=2399) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:28.023+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:23:28.026+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:28.025+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:28.068+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:28.119+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:28.118+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:23:28.155+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:28.154+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:23:28.202+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.188 seconds
+[2025-05-18T13:23:58.442+0000] {processor.py:161} INFO - Started process (PID=2404) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:58.443+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:23:58.445+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:58.445+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:58.487+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:23:58.526+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:58.526+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:23:58.559+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:23:58.559+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:23:58.593+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.157 seconds
+[2025-05-18T13:24:28.760+0000] {processor.py:161} INFO - Started process (PID=2409) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:28.762+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:24:28.764+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:28.763+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:28.828+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:28.895+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:28.895+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:24:28.941+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:28.941+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:24:28.975+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.223 seconds
+[2025-05-18T13:24:59.139+0000] {processor.py:161} INFO - Started process (PID=2414) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:59.142+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:24:59.145+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:59.144+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:59.196+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:24:59.270+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:59.270+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:24:59.335+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:24:59.334+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:24:59.375+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.244 seconds
+[2025-05-18T13:25:29.507+0000] {processor.py:161} INFO - Started process (PID=2419) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:25:29.510+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:25:29.512+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:25:29.511+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:25:29.559+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:25:29.623+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:25:29.623+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:25:29.680+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:25:29.679+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:25:29.720+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.220 seconds
+[2025-05-18T13:25:59.942+0000] {processor.py:161} INFO - Started process (PID=2424) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:25:59.944+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:25:59.947+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:25:59.946+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:26:00.004+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:26:00.062+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:26:00.061+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:26:00.107+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:26:00.106+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:26:00.143+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.207 seconds
+[2025-05-18T13:26:30.312+0000] {processor.py:161} INFO - Started process (PID=2429) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:26:30.314+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:26:30.316+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:26:30.316+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:26:30.363+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:26:30.406+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:26:30.406+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:26:30.437+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:26:30.437+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:26:30.483+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.177 seconds
+[2025-05-18T13:27:00.789+0000] {processor.py:161} INFO - Started process (PID=2434) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:00.791+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:27:00.792+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:00.792+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:00.830+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:00.871+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:00.871+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:27:00.905+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:00.904+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:27:00.949+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.165 seconds
+[2025-05-18T13:27:31.110+0000] {processor.py:161} INFO - Started process (PID=2439) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:31.113+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:27:31.116+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:31.115+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:31.174+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:27:31.241+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:31.240+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:27:31.297+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:27:31.297+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:27:31.336+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.233 seconds
+[2025-05-18T13:28:01.594+0000] {processor.py:161} INFO - Started process (PID=2444) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:01.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:28:01.598+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:01.598+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:01.642+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:01.693+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:01.693+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:28:01.726+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:01.726+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:28:01.776+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.187 seconds
+[2025-05-18T13:28:31.888+0000] {processor.py:161} INFO - Started process (PID=2449) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:31.890+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:28:31.892+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:31.891+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:31.939+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:28:31.979+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:31.978+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:28:32.011+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:28:32.010+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:28:32.039+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.158 seconds
+[2025-05-18T13:29:02.318+0000] {processor.py:161} INFO - Started process (PID=2454) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:02.320+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:29:02.321+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:02.321+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:02.362+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:02.406+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:02.406+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:29:02.437+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:02.437+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:29:02.487+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.174 seconds
+[2025-05-18T13:29:32.593+0000] {processor.py:161} INFO - Started process (PID=2459) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:32.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:29:32.598+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:32.598+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:32.648+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:29:32.693+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:32.693+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:29:32.731+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:29:32.730+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:29:32.776+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.189 seconds
+[2025-05-18T13:30:03.165+0000] {processor.py:161} INFO - Started process (PID=2464) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:03.169+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:30:03.174+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:03.172+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:03.261+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:03.339+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:03.338+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:30:03.391+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:03.390+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:30:03.444+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.288 seconds
+[2025-05-18T13:30:33.797+0000] {processor.py:161} INFO - Started process (PID=2469) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:33.799+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:30:33.802+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:33.801+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:33.845+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:30:33.884+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:33.884+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:30:33.919+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:30:33.919+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:30:33.950+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.158 seconds
+[2025-05-18T13:31:04.113+0000] {processor.py:161} INFO - Started process (PID=2474) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:04.114+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:31:04.116+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:04.115+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:04.159+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:04.197+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:04.197+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:31:04.238+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:04.238+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:31:04.282+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.176 seconds
+[2025-05-18T13:31:34.644+0000] {processor.py:161} INFO - Started process (PID=2479) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:34.646+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:31:34.648+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:34.648+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:34.694+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:31:34.744+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:34.744+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:31:34.781+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:31:34.781+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:31:34.812+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.173 seconds
+[2025-05-18T13:32:04.972+0000] {processor.py:161} INFO - Started process (PID=2484) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:04.974+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:32:04.977+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:04.976+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:05.022+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:05.064+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:05.064+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:32:05.109+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:05.108+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:32:05.136+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.170 seconds
+[2025-05-18T13:32:35.419+0000] {processor.py:161} INFO - Started process (PID=2489) to work on /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:35.421+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/flight_price_Richard.py for tasks to queue
+[2025-05-18T13:32:35.423+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:35.422+0000] {dagbag.py:538} INFO - Filling up the DagBag from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:35.457+0000] {processor.py:840} INFO - DAG(s) 'flight_price_Richard_Amasah' retrieved from /opt/airflow/dags/flight_price_Richard.py
+[2025-05-18T13:32:35.494+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:35.494+0000] {dag.py:3036} INFO - Sync 1 DAGs
+[2025-05-18T13:32:35.522+0000] {logging_mixin.py:188} INFO - [2025-05-18T13:32:35.521+0000] {dag.py:3823} INFO - Setting next_dagrun for flight_price_Richard_Amasah to 2025-05-18 00:00:00+00:00, run_after=2025-05-19 00:00:00+00:00
+[2025-05-18T13:32:35.552+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/flight_price_Richard.py took 0.138 seconds
