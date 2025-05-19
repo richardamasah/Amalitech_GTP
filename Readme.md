@@ -1,125 +1,132 @@
-# Flight Price Pipeline Project  
+# Comprehensive Report: Flight Price Pipeline Project (flight_price_richard)
 
-An automated data pipeline using Apache Airflow and Docker that processes flight price data, ensuring data ingestion, validation, transformation, and loading. This project is designed to provide clear, reproducible insights using a fully containerized setup.
+![Pipeline Architecture](images/pipeline_architecture.jpeg)
 
-## Project Overview
 
-* **Objective:** Automate data processing for flight prices in Bangladesh, covering data ingestion, validation, transformation (average fare by airline), and storage in PostgreSQL for analytics.
-* **Key Benefits:**
+This report provides a detailed overview of the flight price data pipeline project, implemented using Apache Airflow and Docker. The pipeline processes flight price data for Bangladesh, calculating key performance indicators (KPIs) for analysis.
 
-  * Fully automated data pipeline with minimal manual intervention.
-  * Scalable and containerized setup using Docker for easy deployment.
-  * Clear data insights stored in an analytics database (PostgreSQL).
+## Pipeline Architecture and Execution Flow.
 
-## Why This Project Matters
+### Architecture Overview
+The pipeline is designed as a modular, containerized workflow using Apache Airflow (`apache/airflow:2.8.1`) to orchestrate the data processing steps. Key components include:
 
-Accurate flight pricing analysis is essential for understanding market trends, optimizing pricing strategies, and making informed business decisions. This project automates the entire workflow, ensuring consistent and reliable data processing without manual intervention.
+- **Data Source**: The input dataset, `Flight_Price_Dataset_of_Bangladesh.csv`, contains 57,000 rows of flight price data. It is mounted into the container at `/opt/airflow/data/` via Docker volumes.
+- **Databases**:
+  - **MySQL** (`flight_staging` database): Used as a staging database to store raw data (`flight_data_staging` table) and transformed data (`flight_data_transformed` table).
+  - **PostgreSQL** (`flight_analytics` database): Used as an analytics database to store the final KPI results (`avg_fare_by_airline` table).
+- **Airflow Setup**:
+  - **DAG**: A single DAG named `flight_price_richard` orchestrates the workflow. The name reflects my unique contribution to the project, as requested.
+  - **Tasks**: Four tasks (`ingest_data`, `validate_data`, `transform_data`, `load_data`) handle the data processing stages.
+- **Execution Environment**:
+  - Docker containers are defined in `docker-compose.yml`, including `airflow-webserver`, `airflow-scheduler`, `mysql`, and `analytics-postgres`.
+  - Logs are stored in `/opt/airflow/logs/` inside the container and captured locally using `docker-compose logs`.
 
-## Technologies Used
+### Execution Flow
+The pipeline follows a linear execution flow, with each task depending on the successful completion of the previous one:
 
-* **Apache Airflow (2.8.1):** Workflow orchestration, scheduling, and monitoring.
-* **Docker:** Containerization of the entire setup for consistency.
-* **MySQL:** Staging database for raw and intermediate data.
-* **PostgreSQL:** Analytics database for final KPIs and reports.
-* **Python:** Data processing with `pandas`, `sqlalchemy`, and `python-dotenv`.
+1. **Ingestion (`ingest_data`)**:
+   - Reads the CSV file using `pandas`.
+   - Validates the presence of required columns (e.g., `Airline`, `Total Fare (BDT)`).
+   - Loads the data into the `flight_data_staging` table in MySQL.
+   - **Output**: 57,000 rows in `flight_data_staging`.
 
-## Project Structure
+2. **Validation (`validate_data`)**:
+   - Reads data from `flight_data_staging`.
+   - Performs quality checks:
+     - Ensures no missing values in `Total Fare (BDT)`.
+     - Verifies `Duration (hrs)` is between 0 and 24.
+     - Confirms `Departure Date & Time` is in a valid datetime format.
+   - Fails if issues are found; otherwise, proceeds to the next task.
 
-* `dags/flight_price_richard.py`: Defines the Airflow DAG and task dependencies.
-* `scripts/`: Python scripts for each stage of the pipeline:
+3. **Transformation (`transform_data`)**:
+   - Reads data from `flight_data_staging`.
+   - Calculates the average fare by airline (KPI).
+   - Saves the result (24 rows, one per airline) to the `flight_data_transformed` table in MySQL.
 
-  * `data_ingestion.py`: Reads CSV and loads data into MySQL.
-  * `data_validation.py`: Validates data (no missing values, valid durations).
-  * `data_transformation.py`: Calculates average fare by airline.
-  * `data_loading.py`: Loads results into PostgreSQL.
-* `data/`: Directory containing the input dataset (Flight\_Price\_Dataset\_of\_Bangladesh.csv).
-* `docker-compose.yml`: Configures Docker containers (Airflow, MySQL, PostgreSQL).
-* `.env`: Manages environment variables (database credentials, ports).
+4. **Loading (`load_data`)**:
+   - Reads transformed data from `flight_data_transformed`.
+   - Loads it into the `avg_fare_by_airline` table in PostgreSQL for analytics purposes.
+   - **Output**: 24 rows in `avg_fare_by_airline`.
 
-## Setup Instructions
+## Description of Each Airflow DAG/Task
 
-```bash
-# Clone the Repository
-git clone <repository-url>
-cd flight_price_richard
+### DAG: `flight_price_richard`
+- **Purpose**: Orchestrates the end-to-end pipeline for processing flight price data.
+- **Schedule**: Runs daily at midnight (`schedule_interval='@daily'`).
+- **Start Date**: May 18, 2025.
+- **Customization**: Renamed to `flight_price_richard` to reflect my unique contribution, making it distinct in the Airflow UI.
 
-# Configure Environment Variables
-cp .env.example .env
+### Tasks
+1. **`ingest_data`**:
+   - **File**: `data_ingestion.py`
+   - **Purpose**: Loads raw CSV data into the MySQL staging table.
+   - **Input**: `Flight_Price_Dataset_of_Bangladesh.csv` (57,000 rows).
+   - **Output**: `flight_data_staging` table in MySQL.
+   - **Details**: Validates required columns (e.g., `Airline`, `Total Fare (BDT)`) and logs the process.
 
-# Start Docker Containers
-docker-compose up -d
+2. **`validate_data`**:
+   - **File**: `data_validation.py`
+   - **Purpose**: Ensures data quality before further processing.
+   - **Input**: `flight_data_staging` table.
+   - **Checks**:
+     - No missing values in `Total Fare (BDT)`.
+     - `Duration (hrs)` between 0 and 24.
+     - Valid `Departure Date & Time` format.
+   - **Output**: Passes if no issues; fails with an error if validation fails.
 
-# Access Airflow UI
-open http://localhost:8080
-```
+3. **`transform_data`**:
+   - **File**: `data_transformation.py`
+   - **Purpose**: Computes the KPI (average fare by airline).
+   - **Input**: `flight_data_staging` table.
+   - **Output**: `flight_data_transformed` table (24 rows).
+   - **Details**: Groups data by `Airline` and calculates the mean `Total Fare (BDT)`.
 
-## Sample Code Snippets
+4. **`load_data`**:
+   - **File**: `data_loading.py`
+   - **Purpose**: Transfers transformed data to PostgreSQL for analytics.
+   - **Input**: `flight_data_transformed` table.
+   - **Output**: `avg_fare_by_airline` table in PostgreSQL.
 
-* **CSV Ingestion (data\_ingestion.py):**
+## KPI Definitions and Computation Logic
 
-```python
-import pandas as pd
-from sqlalchemy import create_engine
+### KPI: Average Fare by Airline
+- **Definition**: The mean `Total Fare (BDT)` for each airline, representing the typical cost of flights operated by that airline.
+- **Purpose**: Provides insights into pricing differences across airlines, useful for competitive analysis and decision-making.
+- **Computation Logic**:
+  - **Location**: Implemented in `data_transformation.py`.
+  - **Code**:
+    ```python
+    avg_fare_by_airline = df.groupby("Airline")["Total Fare (BDT)"].mean().reset_index()
+    avg_fare_by_airline.columns = ["Airline", "Average_Fare_BDT"]
 
-def ingest_data():
-    df = pd.read_csv('data/Flight_Price_Dataset_of_Bangladesh.csv')
-    engine = create_engine('mysql+mysqlconnector://user:pass@localhost:3306/flight_data')
-    df.to_sql('flight_data_staging', engine, if_exists='replace', index=False)
-```
 
-* **Data Transformation (data\_transformation.py):**
+## KPI Computation Logic: Average Fare by Airline
 
-```python
-import pandas as pd
+### Steps:
+- Load the raw data from `flight_data_staging` into a pandas DataFrame.
+- Group the data by `Airline`.
+- Compute the mean of `Total Fare (BDT)` for each airline.
+- Reset the index to convert the grouped data into a DataFrame with `Airline` as a column.
+- Rename the columns to `Airline` and `Average_Fare_BDT` for clarity.
+- **Output**: A table with 24 rows (one per airline), saved to `flight_data_transformed` (MySQL) and `avg_fare_by_airline` (PostgreSQL).
 
-def transform_data(df):
-    avg_fare_by_airline = df.groupby('Airline')['Total Fare (BDT)'].mean().reset_index()
-    avg_fare_by_airline.columns = ['Airline', 'Average_Fare_BDT']
-    return avg_fare_by_airline
-```
+## Challenges Encountered and How They Were Resolved
 
-* **Data Loading (data\_loading.py):**
+### Challenge: Initial Container Setup Issues
+- **Issue**: Containers failed to start due to misconfiguration in `docker-compose.yml`.
+- **Resolution**: Updated `docker-compose.yml` to use `apache/airflow:2.8.1`, fixed port mappings (e.g., `0.0.0.0:8080->8080/tcp`), and ensured proper volume mounts (e.g., `./data:/opt/airflow/data`).
 
-```python
-from sqlalchemy import create_engine
+### Challenge: Environment Variable Errors in `data_ingestion.py`
+- **Issue**: `ValueError: invalid literal for int() with base 10: 'None'` due to missing `MYSQL_PORT` in `.env`.
+- **Resolution**: Added default values (e.g., `mysql_port = os.getenv("MYSQL_PORT", "3306")`) and logged connection details for debugging.
 
-def load_data(df):
-    engine = create_engine('postgresql://analytics_user:password@localhost:5432/flight_analytics')
-    df.to_sql('avg_fare_by_airline', engine, if_exists='replace', index=False)
-```
+### Challenge: `ModuleNotFoundError` in DAG
+- **Issue**: `ModuleNotFoundError: No module named 'scripts.data_ingestion'` when running the DAG.
+- **Resolution**: Added `sys.path.append('/opt/airflow/scripts')` to `flight_price_richard.py` to include the `scripts/` directory in the Python path.
 
-## Pipeline Details
-
-* **DAG:** `flight_price_richard`
-* **Schedule:** Runs daily at midnight (@daily).
-* **Tasks:**
-
-  1. `ingest_data`: Reads CSV and loads it into MySQL.
-  2. `validate_data`: Checks data quality and consistency.
-  3. `transform_data`: Calculates average fare by airline.
-  4. `load_data`: Stores results in PostgreSQL for analytics.
-
-## Challenges and Resolutions
-
-1. **Container Setup Issues:** Corrected `docker-compose.yml` (updated image, ports, volumes).
-2. **Environment Errors:** Added default values for missing `.env` variables, ensuring smooth connections.
-3. **ModuleNotFoundError:** Fixed import paths using `sys.path.append` for custom scripts.
-4. **Empty Logs:** Enabled log capture using `docker-compose logs` and redirected logs to files.
-
-## Best Practices Implemented
-
-* Modular design with separate scripts for each pipeline stage.
-* Secure environment variable management using `.env`.
-* Clear and consistent logging for debugging and monitoring.
-* Scalability through containerized setup (Docker).
-
-## Future Improvements
-
-* Add data visualization (Grafana) for real-time KPI monitoring.
-* Implement advanced data validation using custom Airflow operators.
-* Set up automated email alerts for pipeline failures.
-* Add automated testing for each stage of the pipeline.
+### Challenge: Empty Local Logs
+- **Issue**: Local `logs/` folder files were empty despite successful runs.
+- **Resolution**: Used `docker-compose logs` to capture container logs (e.g., `docker-compose logs airflow-webserver > logs/airflow-webserver.log`) and included them in the repository.
 
 ## Conclusion
-
-This Flight Price Pipeline provides a robust, scalable solution for automated data processing using Airflow and Docker. It ensures clear data insights, such as the average fare by airline, stored in a PostgreSQL analytics database for further analysis. The modular design allows for easy expansion, making it adaptable for additional datasets or enhanced analytics.
+The pipeline successfully processes 57,000 rows of flight price data, validates data quality, calculates the average fare by airline, and stores the results in PostgreSQL for analytics. The project demonstrates a robust use of Airflow, Docker, and database integration, with a personalized DAG name (`flight_price_richard`) to highlight my contribution.
