@@ -1,6 +1,6 @@
 # Comprehensive Report: Flight Price Pipeline Project (flight_price_richard)
 
-![Pipeline Architecture](Images/pipeline_architecture.png.jp)
+![Pipeline Architecture](Images/pipeline_architecture.png.jpeg)
 
 
 This report provides a detailed overview of the flight price data pipeline project, implemented using Apache Airflow and Docker. The pipeline processes flight price data for Bangladesh, calculating key performance indicators (KPIs) for analysis.
