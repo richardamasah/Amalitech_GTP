@@ -1,4 +1,4 @@
-#  Flight Price Pipeline Project ### by Richard Amasah
+#  Flight Price Pipeline Project 
 
 ![Pipeline Architecture](Images/pipeline_architecture.png.jpeg)
 
@@ -15,7 +15,7 @@ The pipeline is designed as a modular, containerized workflow using Apache Airfl
   - **MySQL** (`flight_staging` database): Used as a staging database to store raw data (`flight_data_staging` table) and transformed data (`flight_data_transformed` table).
   - **PostgreSQL** (`flight_analytics` database): Used as an analytics database to store the final KPI results (`avg_fare_by_airline` table).
 - **Airflow Setup**:
-  - **DAG**: A single DAG named `flight_price_richard` orchestrates the workflow. The name reflects my unique contribution to the project, as requested.
+  - **DAG**: A single DAG named `flight_price_richard` orchestrates the workflow.
   - **Tasks**: Four tasks (`ingest_data`, `validate_data`, `transform_data`, `load_data`) handle the data processing stages.
 - **Execution Environment**:
   - Docker containers are defined in `docker-compose.yml`, including `airflow-webserver`, `airflow-scheduler`, `mysql`, and `analytics-postgres`.
@@ -129,4 +129,6 @@ The pipeline follows a linear execution flow, with each task depending on the su
 - **Resolution**: Used `docker-compose logs` to capture container logs (e.g., `docker-compose logs airflow-webserver > logs/airflow-webserver.log`) and included them in the repository.
 
 ## Conclusion
-The pipeline successfully processes 57,000 rows of flight price data, validates data quality, calculates the average fare by airline, and stores the results in PostgreSQL for analytics. The project demonstrates a robust use of Airflow, Docker, and database integration, with a personalized DAG name (`flight_price_richard`) to highlight my contribution.
+The pipeline successfully processes 57,000 rows of flight price data, validates data quality, calculates the average fare by airline, and stores the results in PostgreSQL for analytics. The project demonstrates a robust use of Airflow, Docker, and database integration. 
+
+Author - Richard Nii DJanie Amasah
