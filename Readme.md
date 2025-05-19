@@ -1,4 +1,4 @@
-# Comprehensive Report: Flight Price Pipeline Project (flight_price_richard)
+#  Flight Price Pipeline Project ### by Richard Amasah
 
 ![Pipeline Architecture](Images/pipeline_architecture.png.jpeg)
 
